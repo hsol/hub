@@ -28,5 +28,8 @@
 .container .card ul li {
   list-style: none;
 }
+.container .card footer {
+  text-align: right;
+}
 
 /*# sourceMappingURL=index.css.map */
