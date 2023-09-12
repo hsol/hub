@@ -1,0 +1,78 @@
+.container > .wrapper {
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+.container > .wrapper > h1 {
+  padding-left: 0.2em;
+}
+.container > .wrapper > section > div {
+  padding-top: 2.7em;
+  padding-right: 2em;
+}
+@media screen and (max-width: 1000px) {
+  .container > .wrapper > section > div {
+    padding-right: 0;
+  }
+}
+.container > .wrapper > section > div article .panel-func .created-at {
+  color: #aaa;
+}
+.container > .wrapper > section > aside > section {
+  padding-bottom: 1em;
+}
+.container > .wrapper > section > aside article.profile-card {
+  position: relative;
+  overflow: visible;
+}
+.container > .wrapper > section > aside article.profile-card:hover .wrapper {
+  opacity: 1;
+}
+.container > .wrapper > section > aside article.profile-card:hover .wrapper > div {
+  transform: translateX(10px);
+}
+.container > .wrapper > section > aside article.profile-card header {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}
+.container > .wrapper > section > aside article.profile-card header .profile-card__img {
+  position: relative;
+  z-index: 2;
+  width: 3em;
+  height: 3em;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
+  border: 1px solid #aaa;
+}
+.container > .wrapper > section > aside article.profile-card header .info {
+  white-space: nowrap;
+  margin-right: auto;
+}
+.container > .wrapper > section > aside article.profile-card header .info * {
+  line-height: inherit;
+  vertical-align: middle;
+}
+.container > .wrapper > section > aside article.profile-card header .info .labels {
+  display: inline-flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 0.5ex;
+}
+.container > .wrapper > section > aside article.profile-card header .info .labels .label {
+  background-color: #aaa;
+  margin: 0;
+}
+.container .banner {
+  width: 100%;
+  text-align: center;
+}
+.container .banner img {
+  max-width: 100%;
+}
+
+/*# sourceMappingURL=home.css.map */

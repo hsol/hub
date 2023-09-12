@@ -1,0 +1,105 @@
+@import '../../node_modules/picnic/src/themes/default/theme';
+
+.container {
+  & > .wrapper {
+    padding: 1em;
+    background-color: $picnic-white;
+    border-radius: 10px;
+    box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+
+    & > h1 {
+      padding-left: 0.2em;
+    }
+
+    & > section {
+      & > div {
+        padding-top: 2.7em;
+        padding-right: 2em;
+
+        @media screen and (max-width: 1000px) {
+          padding-right: 0;
+        }
+
+        article {
+          .panel-func {
+            .created-at {
+              color: $picnic-dull;
+            }
+          }
+        }
+      }
+
+      & > aside {
+        & > section {
+          padding-bottom: 1em;
+        }
+
+        article.profile-card {
+          position: relative;
+
+          &:hover {
+            .wrapper {
+              opacity: 1;
+
+              & > div {
+                transform: translateX(10px);
+              }
+            }
+          }
+
+          overflow: visible;
+
+          header {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1em;
+
+            .profile-card__img {
+              position: relative;
+              z-index: 2;
+              width: 3em;
+              height: 3em;
+              background-size: cover;
+              background-position: center center;
+              border-radius: 100%;
+              border: $picnic-border;
+            }
+
+            .info {
+              white-space: nowrap;
+              margin-right: auto;
+
+              * {
+                line-height: inherit;
+                vertical-align: middle;
+              }
+
+              .labels {
+                display: inline-flex;
+                flex-flow: row nowrap;
+                align-items: center;
+                gap: 0.5ex;
+
+                .label {
+                  background-color: $gray;
+                  margin: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .banner {
+    width: 100%;
+    text-align: center;
+
+    img {
+      max-width: 100%;
+    }
+  }
+}

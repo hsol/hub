@@ -1,0 +1,84 @@
+{% extends "community/base.html" %}
+
+{% set tpl__meta_title = "{} :: 홈".format(community.name) %}
+{% set tpl__meta_description = community.thread.body %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{% static "css/community/home.css" %}"/>
+{% endblock %}
+
+{% block content %}
+    <div class="wrapper">
+        <h1>{{ community.name }}</h1>
+        <section class="flex grow">
+            <div class="fourth-1000">
+                <article class="card">
+                    <img src="{{ community.banner_img_url }}" alt="배너 이미지"/>
+                    <footer>
+                        <p class="created-at">{{ community.created_at.strftime('%Y-%m-%d') }}</p>
+                        <div>{{ community.thread.body }}</div>
+                    </footer>
+                </article>
+                {% for comment in community.thread.comments.all() %}
+                    <article class="card">
+                        <footer>
+                            <div>{{ comment.body }}</div>
+                            <p class="created-at">{{ comment.created_at.strftime('%Y-%m-%d') }}</p>
+                        </footer>
+                    </article>
+                {% endfor %}
+            </div>
+            <aside>
+                <h4>관계자</h4>
+                <section>
+                    {% for manager in community.managers.all() %}
+                        {% for profile in manager.own_profiles.all() %}
+                            <article class="card profile-card">
+                                <header>
+                                    <a class="profile-card__img tooltip-top" href="{{ profile.profile_img_url }}"
+                                       target="_blank"
+                                       data-tooltip="원본보기"
+                                       style="background-image: url('{{ profile.profile_img_url }}')"></a>
+                                    <div class="info">
+                                        <h3>{{ profile.full_name }}</h3>
+                                        {% if profile.phone_number %}
+                                            <h3><span class="label">{{ profile.phone_number }}</span></h3>{% endif %}
+                                    </div>
+                                    <div></div>
+                                </header>
+                            </article>
+                        {% endfor %}
+                    {% endfor %}
+                </section>
+                <hr/>
+                <h4>구성원</h4>
+                <section>
+                    {% for member in community.members.all() %}
+                        {% for profile in member.own_profiles.all() %}
+                            <article class="card profile-card">
+                                <a href="{{ url("comm_profile", kwargs={"community_id": community.id, "profile_id": profile.id}) }}"
+                                   class="full-cover dimm">
+                                    <div class="arrow"><i class="fa-solid fa-caret-right"></i></div>
+                                </a>
+                                <header>
+                                    <a class="profile-card__img tooltip-top" href="{{ profile.profile_img_url }}"
+                                       target="_blank"
+                                       data-tooltip="원본보기"
+                                       style="background-image: url('{{ profile.profile_img_url }}')"></a>
+                                    <div class="info">
+                                        <h3>{{ profile.full_name }}</h3>
+                                        <h2 class="labels">
+                                            <span class="label">{{ profile.org_name }}</span>
+                                            <span class="label">{{ profile.job_title }}</span>
+                                        </h2>
+                                    </div>
+                                </header>
+                            </article>
+                        {% endfor %}
+                    {% endfor %}
+                </section>
+            </aside>
+        </section>
+    </div>
+{% endblock %}

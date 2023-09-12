@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{% static "css/index.css" %}"/>
+{% endblock %}
+{% block body %}
+    <nav>
+        <a href="{{ url("index") }}" class="brand">
+            <span class="logo">
+                <i class="fa-solid fa-at"></i>
+            </span>
+            <span>{{ meta_title }}</span>
+        </a>
+    </nav>
+    <div class="container">
+        <div class="hero">
+            <i class="fa-solid fa-at"></i>
+            <span>{{ meta_title }}</span>
+        </div>
+        <div class="card">
+            <header>Hub가 뭔가요?</header>
+            <code>{{ meta_description }}</code>
+            <footer>
+                {% if request.user.is_authenticated %}
+                    <ul>
+                        {% for community in request.user.belong_communities.all() %}
+                            <li>
+                                <a href="{{ url("comm_home", kwargs={"community_id": community.id}) }}"
+                                   class="button">{{ community.name }}(으)로 이동</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <a href="{{ url("login") }}" class="button">로그인</a>
+                {% endif %}
+            </footer>
+        </div>
+    </div>
+{% endblock %}

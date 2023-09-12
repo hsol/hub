@@ -1,0 +1,45 @@
+.container > section > form fieldset {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 0.5em;
+  justify-content: flex-end;
+  align-items: center;
+}
+.container > section > form fieldset input[type=text] {
+  min-width: 15em;
+}
+.container > section > ul {
+  margin: 0;
+  padding: 0;
+}
+.container > section > ul li {
+  list-style: none;
+}
+.container > section > ul li article.card {
+  overflow: visible;
+  width: 100%;
+}
+.container > section > ul li article.card header {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: stretch;
+  align-items: center;
+  gap: 1em;
+}
+.container > section > ul li article.card header .profile-img {
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0.2em;
+}
+.container > section > ul li article.card header .thread {
+  padding: 0.1em 0;
+  font-weight: normal;
+}
+.container > section > ul li article.card footer table {
+  width: 100%;
+}
+
+/*# sourceMappingURL=profile_list.css.map */

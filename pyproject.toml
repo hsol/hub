@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "hub"
+version = "0.1.0"
+description = ""
+authors = ["HansolLim <dev.hansollim@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+django = "^4.2.3"
+django-mysql = "^4.10.0"
+python-dotenv = "^1.0.0"
+pymysql = "^1.1.0"
+whitenoise = "^6.5.0"
+setuptools = "^68.0.0"
+gunicorn = "^19.1.1"
+dj-soft-delete = "^1.0.1"
+django-admin-ordering = "^0.17.0"
+jinja2-django-tags = "^0.5"
+cryptography = "^41.0.3"
+uuid = "^1.30"
+djangorestframework = "^3.14.0"
+unicode-slugify = "^0.1.5"
+django-autoslug = "^1.9.9"
+django-phonenumber-field = "^7.1.0"
+phonenumbers = "^8.13.20"
+qrcode = "^7.4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

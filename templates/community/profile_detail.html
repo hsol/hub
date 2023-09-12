@@ -1,0 +1,84 @@
+{% extends "community/base.html" %}
+
+{% set tpl__meta_title = "{} - {}".format(community.name, profile.full_name) %}
+{% set tpl__meta_description = profile.thread.body or "{}님의 프로필 정보".format(profile.full_name) %}
+
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{% static "css/community/profile_detail.css" %}"/>
+    <script src="{% static "js/community/profile_detail.js" %}"></script>
+{% endblock %}
+{% block content %}
+    {% csrf_token %}
+    <input type="hidden" name="thread_id" value="{{ profile.thread.id }}"/>
+    <section class="profile">
+        <header></header>
+        <footer>
+            <aside>
+                <a class="profile__img tooltip-top" href="{{ profile.profile_img_url }}"
+                   target="_blank"
+                   data-tooltip="원본보기"
+                   style="background-image: url('{{ profile.profile_img_url }}')"></a>
+                <h1 class="profile__name">{{ profile.full_name }}</h1>
+                <ul class="profile__info">
+                    <li>
+                        <h3>연락처</h3>
+                        <p>{{ profile.phone_number }}</p>
+                        <p><a href="mailto:{{ profile.email }}">{{ profile.email }}</a></p>
+                    </li>
+                    <li>
+                        <h3>소속</h3>
+                        <p>{{ profile.org_name }}</p>
+                    </li>
+                    <li>
+                        <h3>직함</h3>
+                        <p>{{ profile.job_title }}</p>
+                    </li>
+                </ul>
+            </aside>
+            <article>
+                <div class="thread">
+                    <div class="body">
+                        <label>
+                            {% if profile.owner == request.user %}
+                                <textarea name="thread">{{ profile.thread.body or "안녕하세요. {} 입니다.".format(profile.full_name) }}</textarea>
+                            {% else %}
+                                {{ profile.thread.body or "안녕하세요. {} 입니다.".format(profile.full_name) }}
+                            {% endif %}
+                        </label>
+                    </div>
+                    <div class="func">
+                        <span class="created-at">{{ profile.thread.created_at.strftime('%Y-%m-%d') }}</span>
+                        {% if profile.owner == request.user %}<button id="js_modify_thread">내용수정</button>{% endif %}
+                    </div>
+                </div>
+                <div class="panel-func flex one two-600 grow">
+                    <label>
+                        <textarea name="new_comment" placeholder="{{ profile.first_name }}님에게 한마디를 남겨주세요."></textarea>
+                    </label>
+                    <button id="js_add_comment">소식 남기기</button>
+                </div>
+                <ul class="comments">
+                    {% for comment in profile.thread.comments.all() %}
+                        <li class="comment">
+                            <header class="comment__profile">
+                                {% set comment__profile = comment.owner.own_profiles.get() %}
+                                <a class="comment__profile__img tooltip-top"
+                                   href="{{ comment__profile.profile_img_url }}"
+                                   target="_blank"
+                                   data-tooltip="원본보기"
+                                   style="background-image: url('{{ comment__profile.profile_img_url }}')"></a>
+                                <div class="comment__profile__info">
+                                    <h3>{{ comment__profile.full_name }}</h3>
+                                </div>
+                                <div class="created-at">{{ comment.created_at.strftime('%Y-%m-%d') }}</div>
+                            </header>
+                            <footer class="comment__body">{{ comment.body }}</footer>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </article>
+        </footer>
+    </section>
+{% endblock %}

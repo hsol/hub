@@ -1,0 +1,25 @@
+.container > header {
+  text-align: center;
+}
+.container > header form {
+  width: 100%;
+  max-width: 600px;
+  padding: 1em;
+  background-color: #fff;
+  border: 1px solid #aaa;
+  border-radius: 0.2em;
+  margin: 0 auto;
+  text-align: left;
+}
+.container > header form > label {
+  display: block;
+  padding-bottom: 0.3em;
+}
+.container > header form .submit-row {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+}
+
+/*# sourceMappingURL=login.css.map */

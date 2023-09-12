@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="kr">
+<head><title>이메일 인증</title></head>
+<body>
+<article>
+    <header>
+        <h1>Hub, 오프라인 커뮤니티 기반 네트워킹</h1>
+    </header>
+    <footer>
+        <h3>{{ email.split('@')[0] }} 님 안녕하세요.</h3>
+        <p>링크를 클릭하여 로그인을 완료해주세요.</p>
+        <h3>주의사항</h3>
+        <ul>
+            <li>링크는 받은시점부터 5분동안 유효 합니다.</li>
+            <li>링크는 일회성으로, 로그인 후 자동으로 만료됩니다.</li>
+        </ul>
+        <a href="{{ request.scheme }}://{{ request.META.HTTP_HOST }}{{ verify_path }}" target="_blank">링크를 클릭하여 로그인 하기</a>
+    </footer>
+</article>
+</body>
+</html>

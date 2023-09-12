@@ -1,0 +1,18 @@
+{% extends "community/base.html" %}
+
+{% set tpl__meta_title = "{} 이야기".format(community.name) %}
+{% set tpl__meta_description = "{} 에서 주고받는 이야기".format(community.name) %}
+
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{% static "css/community/profile_list.css" %}"/>
+{% endblock %}
+{% block content %}
+    <section>
+        <ul>
+            {% for thread in threads %}
+            {% endfor %}
+        </ul>
+    </section>
+{% endblock %}

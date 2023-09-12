@@ -1,0 +1,186 @@
+.container .profile {
+  background-color: #fefefe;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.1);
+}
+.container .profile__img {
+  display: block;
+  width: 20vw;
+  height: 20vw;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 0.2em;
+}
+.container .profile .created-at {
+  color: #aaa;
+  text-align: right;
+}
+.container .profile > header {
+  height: 30vh;
+  background-color: #aaa;
+}
+.container .profile > footer {
+  padding: 1em;
+  display: flex;
+  flex-flow: row;
+  align-items: flex-start;
+  gap: 1em;
+}
+@media screen and (max-width: 800px) {
+  .container .profile > footer {
+    flex-flow: column;
+  }
+}
+.container .profile > footer aside {
+  position: relative;
+  top: -20vh;
+  padding: 0.5em;
+  display: flex;
+  flex-flow: column;
+}
+@media screen and (max-width: 800px) {
+  .container .profile > footer aside {
+    top: -5vh;
+    width: 100%;
+    flex-flow: row wrap;
+    gap: 1em;
+  }
+}
+.container .profile > footer aside .profile__img {
+  min-width: 10em;
+  min-height: 10em;
+}
+.container .profile > footer aside .profile__name {
+  white-space: nowrap;
+  font-size: max(1vw, 24pt);
+}
+@media screen and (max-width: 800px) {
+  .container .profile > footer aside .profile__name {
+    padding-top: 5vh;
+  }
+}
+.container .profile > footer aside > ul {
+  padding: 0;
+  margin: 0;
+  gap: 1em;
+  display: flex;
+  flex-flow: column;
+}
+@media screen and (max-width: 800px) {
+  .container .profile > footer aside > ul {
+    width: 100%;
+    flex-flow: row;
+  }
+  .container .profile > footer aside > ul li {
+    border-bottom: none;
+  }
+}
+.container .profile > footer aside > ul li {
+  width: 100%;
+  list-style: none;
+}
+.container .profile > footer aside > ul li:not(.container .profile > footer aside > ul li:last-of-type) {
+  padding-bottom: 1em;
+  border-color: transparent;
+}
+.container .profile > footer aside > ul li p {
+  margin: 0;
+}
+.container .profile > footer aside > ul li h3 {
+  padding: 0 0 0.5em 0;
+}
+.container .profile > footer article {
+  width: 100%;
+}
+.container .profile > footer article .thread {
+  background-color: #fff;
+  position: relative;
+  top: -5vh;
+  padding: 1em;
+  border: 1px solid #aaa;
+  border-radius: 0.2em;
+}
+.container .profile > footer article .thread .body {
+  padding-bottom: 0.5em;
+}
+.container .profile > footer article .thread .body textarea {
+  resize: vertical;
+}
+.container .profile > footer article .thread .func {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+.container .profile > footer article .panel-func {
+  border-top: 1px solid #aaa;
+  padding: 0.5em 0;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 0.5em;
+}
+.container .profile > footer article .panel-func label {
+  line-height: 0;
+}
+.container .profile > footer article .panel-func textarea {
+  width: 100%;
+  resize: vertical;
+}
+.container .profile > footer article .panel-func button {
+  padding: 0.3em 0;
+  margin: 0;
+  max-height: 4em;
+}
+@media screen and (min-width: 600px) {
+  .container .profile > footer article .panel-func {
+    gap: 0;
+  }
+  .container .profile > footer article .panel-func label {
+    padding-right: 1em;
+  }
+  .container .profile > footer article .panel-func button {
+    width: 2em;
+    padding: 0.1em 0;
+  }
+}
+.container .profile > footer article ul.comments {
+  padding: 0;
+  margin: 0;
+  gap: 1em;
+}
+.container .profile > footer article ul.comments .comment {
+  position: relative;
+  width: 100%;
+  padding: 1em;
+  list-style: none;
+  border: 1px solid #aaa;
+  border-radius: 0.2em;
+  background-color: #fff;
+}
+.container .profile > footer article ul.comments .comment__profile {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: 1ex;
+}
+.container .profile > footer article ul.comments .comment__profile__img {
+  display: block;
+  width: 2em;
+  height: 2em;
+  background-size: cover;
+  background-position: center center;
+  border-radius: 100%;
+  border: 1px solid #aaa;
+}
+.container .profile > footer article ul.comments .comment__profile__info {
+  white-space: nowrap;
+}
+.container .profile > footer article ul.comments .comment__profile .created-at {
+  margin-left: auto;
+}
+.container .profile > footer article ul.comments .comment__body {
+  padding-bottom: 1em;
+}
+
+/*# sourceMappingURL=profile_detail.css.map */

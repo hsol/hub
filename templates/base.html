@@ -1,0 +1,63 @@
+{% set meta_title = "Hub, 오프라인 커뮤니티 기반 네트워킹" %}
+{% set meta_description = "Hub 는 오프라인 커뮤니티 기반 비공개 네트워킹 플랫폼으로, 커뮤니티 소식 및 커뮤니티에 속한 멤버들의 정보를 온라인에서 손쉽게 확인하거나 오프라인 모임 이후 온라인에서 네트워킹을 이어가는 목적으로 사용할 수 있는 소셜 네트워크 시스템입니다." %}
+{% set meta_author = "molmoty" %}
+{% set context_url = "{}://{}{}".format(request.scheme, request.META.HTTP_HOST, request.get_full_path()) %}
+
+<!DOCTYPE html>
+<html lang="kr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+    <!-- Primary Meta Tags -->
+    <title>{{ tpl__meta_title or meta_title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="title" content="{{ tpl__meta_title or meta_title }}">
+    <meta name="author" content="{{ tpl__meta_author or meta_author }}">
+    <meta name="description"
+          content="{{ tpl__meta_description or meta_description }}">
+    <meta name="keywords" content=""/>
+    <link rel="canonical" href="{{ context_url }}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ context_url }}">
+    <meta property="og:title" content="{{ tpl__meta_title or meta_title }}">
+    <meta property="og:description" content="{{ tpl__meta_description or meta_description }}">
+    <meta property="og:image" content="">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{{ context_url }}">
+    <meta property="twitter:title" content="{{ tpl__meta_title or meta_title }}">
+    <meta property="twitter:description"
+          content="{{ tpl__meta_description or meta_description }}">
+    <meta property="twitter:image" content="">
+
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="120x120" href="{% static 'img/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'img/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'img/favicon/favicon-16x16.png' %}">
+    <link rel="mask-icon" href="{% static 'img/favicon/safari-pinned-tab.svg' %}" color="#525FE1">
+    <link rel="manifest" href="{% static 'site.webmanifest' %}">
+    <meta name="msapplication-TileColor" content="#525FE1">
+    <meta name="theme-color" content="#525FE1">
+
+    <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+    {% block head %}{% endblock %}
+</head>
+<body>
+{% block body %}{% endblock %}
+
+{% if messages %}
+    <script>
+        let messages = [];
+        {% for message in messages %}
+            messages.push("{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}{{ message }}");
+        {% endfor %}
+
+        if (messages.length > 0) alert("\n".join(messages));
+    </script>
+{% endif %}
+</body>
+</html>

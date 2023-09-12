@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{% static "css/community/base.css" %}"/>
+{% endblock %}
+
+{% block body %}
+    <nav>
+        <a href="{{ url("comm_home", kwargs={"community_id": community.id}) }}" class="brand">
+            <span class="logo">
+                <i class="fa-solid fa-at"></i>
+            </span>
+            <span>{{ community.name }}</span>
+        </a>
+
+        <!-- responsive-->
+        <input id="bmenub" type="checkbox" class="show">
+        <label for="bmenub" class="burger pseudo button">메뉴</label>
+
+        <div class="menu">
+            <a href="{{ url("comm_profiles", kwargs={"community_id": community.id}) }}" class="pseudo button"><i
+                    class="fa-regular fa-address-card"></i>&nbsp;&nbsp;사람들</a>
+            {#            <a href="{{ url("comm_threads", kwargs={"community_id": community.id}) }}" class="pseudo button"><i class="fa-brands fa-threads"></i>&nbsp;&nbsp;이야기</a>#}
+            <a href="{{ url("comm_mypage", kwargs={"community_id": community.id}) }}" class="pseudo button"><i
+                    class="fa-regular fa-id-badge"></i>&nbsp;&nbsp;내 프로필</a>
+            <a href="{{ url("logout") }}?next={{ request.get_full_path() }}" class="pseudo button"><i
+                    class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;로그아웃</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="google-ads">
+            <div class="wrap">
+                <img src="{{ community.banner_img_url }}"/>
+            </div>
+        </div>
+        {% block content %}{% endblock %}
+    </div>
+    <footer></footer>
+{% endblock %}

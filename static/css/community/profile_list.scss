@@ -1,0 +1,57 @@
+@import '../../node_modules/picnic/src/themes/default/theme';
+
+.container {
+  & > section {
+    & > form {
+      fieldset {
+        display: flex;
+        flex-flow: row nowrap;
+        gap: 0.5em;
+        justify-content: flex-end;
+        align-items: center;
+        input[type=text] {min-width: 15em;}
+      }
+    }
+    & > ul {
+      margin: 0;
+      padding: 0;
+      li {
+        list-style: none;
+
+        article.card {
+          overflow: visible;
+          width: 100%;
+
+          header {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: stretch;
+            align-items: center;
+            gap: 1em;
+
+            .profile-img {
+              display: block;
+              width: 100px;
+              height: 100px;
+              background-size: cover;
+              background-position: center center;
+
+              border-radius: 0.2em;
+            }
+
+            .thread {
+              padding: 0.1em 0;
+              font-weight: normal;
+            }
+          }
+
+          footer {
+            table {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
