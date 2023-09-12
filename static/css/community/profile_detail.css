@@ -103,6 +103,8 @@
 }
 .container .profile > footer article .thread .body {
   padding-bottom: 0.5em;
+}
+.container .profile > footer article .thread .body .pre {
   white-space: pre-wrap;
 }
 .container .profile > footer article .thread .body textarea {

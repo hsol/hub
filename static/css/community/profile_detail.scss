@@ -116,7 +116,9 @@
 
           .body {
             padding-bottom: 0.5em;
-            white-space: pre-wrap;
+            .pre {
+              white-space: pre-wrap;
+            }
             textarea {
               resize: vertical;
             }

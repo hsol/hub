@@ -44,7 +44,7 @@
                             {% if profile.owner == request.user %}
                                 <textarea name="thread">{{ profile.thread.body or "안녕하세요. {} 입니다.".format(profile.full_name) }}</textarea>
                             {% else %}
-                                {{ profile.thread.body or "안녕하세요. {} 입니다.".format(profile.full_name) }}
+                                <div class="pre">{{ profile.thread.body or "안녕하세요. {} 입니다.".format(profile.full_name) }}</div>
                             {% endif %}
                         </label>
                     </div>
