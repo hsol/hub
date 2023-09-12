@@ -16,7 +16,8 @@
     padding-right: 0;
   }
 }
-.container > .wrapper > section > div article .panel-func .created-at {
+.container > .wrapper > section > div .created-at {
+  text-align: right;
   color: #aaa;
 }
 .container > .wrapper > section > aside > section {

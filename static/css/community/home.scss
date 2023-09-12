@@ -20,12 +20,9 @@
           padding-right: 0;
         }
 
-        article {
-          .panel-func {
-            .created-at {
-              color: $picnic-dull;
-            }
-          }
+        .created-at {
+          text-align: right;
+          color: $picnic-dull;
         }
       }
 

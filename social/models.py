@@ -67,18 +67,20 @@ class SocialThreadModel(models.Model):
         on_delete=models.CASCADE,
         blank=True,
         editable=False,
+        null=True,
     )
 
     @transaction.atomic()
     def save(
         self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
+        super().save(force_insert, force_update, using, update_fields)
+
         try:
             assert self.thread
-        except SocialThread.DoesNotExist:
+        except (AssertionError, SocialThread.DoesNotExist):
             self.thread = SocialThread.objects.create()
-
-        return super().save(force_insert, force_update, using, update_fields)
+            self.save(update_fields=["thread"])
 
     class Meta:
         abstract = True

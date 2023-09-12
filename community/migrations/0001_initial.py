@@ -95,6 +95,7 @@ class Migration(migrations.Migration):
                         to="social.socialthread",
                         verbose_name="스레드",
                         editable=False,
+                        null=True,
                     ),
                 ),
             ],

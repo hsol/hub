@@ -60,10 +60,6 @@ class Profile(SocialThreadModel, HasSoftDelete, TimestampModel):
     def save(
         self, force_insert=False, force_update=False, using=None, update_fields=None
     ):
-        instance: Profile = super().save(
-            force_insert, force_update, using, update_fields
-        )
-        instance.thread.owner = self.owner
-        instance.thread.save(update_fields=["owner"])
-
-        return instance
+        super().save(force_insert, force_update, using, update_fields)
+        self.thread.owner = self.owner
+        self.thread.save(update_fields=["owner"])
