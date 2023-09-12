@@ -3682,10 +3682,14 @@ body {
   height: 100%;
   z-index: 1;
 }
+.full-cover .arrow {
+  opacity: 0.3;
+}
 .full-cover:hover.dimm {
   background-color: rgba(0, 0, 0, 0.05);
 }
 .full-cover:hover .arrow {
+  opacity: 1;
   transform: translateX(5px);
 }
 .full-cover .arrow {

@@ -20,6 +20,10 @@
   text-align: right;
   color: #aaa;
 }
+.container > .wrapper > section > div article .body {
+  width: 100%;
+  white-space: pre-wrap;
+}
 .container > .wrapper > section > aside {
   max-width: 100%;
 }

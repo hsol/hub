@@ -103,6 +103,7 @@
 }
 .container .profile > footer article .thread .body {
   padding-bottom: 0.5em;
+  white-space: pre-wrap;
 }
 .container .profile > footer article .thread .body textarea {
   resize: vertical;
@@ -181,6 +182,7 @@
 }
 .container .profile > footer article ul.comments .comment__body {
   padding-bottom: 1em;
+  white-space: pre-wrap;
 }
 
 /*# sourceMappingURL=profile_detail.css.map */

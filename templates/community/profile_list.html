@@ -12,7 +12,8 @@
     <section>
         <form method="GET">
             <fieldset>
-                <label><input name="q" type="text" placeholder="검색어 입력(ex: 이름, 직군)" value="{{ request.GET.get("q", "") }}"/></label>
+                <label><input name="q" type="text" placeholder="검색어 입력(ex: 이름, 직군)"
+                              value="{{ request.GET.get("q", "") }}"/></label>
                 <label>
                     <button type="submit">검색</button>
                 </label>
@@ -24,6 +25,10 @@
             {% for profile in profiles %}
                 <li>
                     <article class="card profile-card">
+                        <a href="{{ url("comm_profile", kwargs={"community_id": community.id, "profile_id": profile.id}) }}"
+                           class="full-cover dimm">
+                            <div class="arrow"><i class="fa-solid fa-caret-right"></i></div>
+                        </a>
                         <header>
                             <a class="profile-img tooltip-top" href="{{ profile.profile_img_url }}"
                                target="_blank"

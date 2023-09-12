@@ -116,6 +116,7 @@
 
           .body {
             padding-bottom: 0.5em;
+            white-space: pre-wrap;
             textarea {
               resize: vertical;
             }
@@ -207,6 +208,7 @@
 
             &__body {
               padding-bottom: 1em;
+              white-space: pre-wrap;
             }
           }
         }

@@ -17,13 +17,13 @@
                     <img src="{{ community.banner_img_url }}" alt="배너 이미지"/>
                     <footer>
                         <p class="created-at">{{ community.created_at.strftime('%Y-%m-%d') }}</p>
-                        <div>{{ community.thread.body }}</div>
+                        <div class="body">{{ community.thread.body }}</div>
                     </footer>
                 </article>
                 {% for comment in community.thread.comments.all() %}
                     <article class="card">
                         <footer>
-                            <div>{{ comment.body }}</div>
+                            <div class="body">{{ comment.body }}</div>
                             <p class="created-at">{{ comment.created_at.strftime('%Y-%m-%d') }}</p>
                         </footer>
                     </article>
