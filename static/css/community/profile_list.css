@@ -28,8 +28,8 @@
 }
 .container > section > ul li article.card header .profile-img {
   display: block;
-  width: 100px;
-  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
   background-size: cover;
   background-position: center center;
   border-radius: 0.2em;
