@@ -44,6 +44,8 @@
     <meta name="theme-color" content="#525FE1">
 
     <link rel="stylesheet" href="{% static "css/base.css" %}"/>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-750J871D01"></script>
     {% block head %}{% endblock %}
 </head>
 <body>
@@ -59,5 +61,13 @@
         if (messages.length > 0) alert("\n".join(messages));
     </script>
 {% endif %}
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-750J871D01');
+</script>
 </body>
 </html>
