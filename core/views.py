@@ -46,7 +46,11 @@ class LoginView(RedirectURLMixin, FormView):
             verify_path += f"&next={redirect_to}"
 
         response = EmailVerifyTemplateView(request=self.request).render_to_response(
-            {"email": email, "verify_path": verify_path}
+            {
+                "email": email,
+                "verify_path": verify_path,
+                "first_name": token.user.first_name,
+            }
         )
         send_mail(
             subject="[Hub] 이메일로 로그인해주세요.",
