@@ -76,6 +76,9 @@ body {
       max-height: 90px;
       overflow: hidden;
       border-radius: 0.2em;
+      img {
+        max-width: 100%;
+      }
     }
   }
 }

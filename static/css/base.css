@@ -3668,6 +3668,9 @@ body {
   overflow: hidden;
   border-radius: 0.2em;
 }
+.container .google-ads .wrap img {
+  max-width: 100%;
+}
 
 .full-cover {
   display: flex;
